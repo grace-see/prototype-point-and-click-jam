@@ -1,1 +1,1 @@
-# true-colors-jam
+# prototype-point-and-click-jam
