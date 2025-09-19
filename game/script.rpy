@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
+define c = Character("Chiaki")
 
 
 # The game starts here.
@@ -11,24 +11,59 @@ define e = Character("Eileen")
 # Testing to see if the commits work...
 
 label start:
+    # variables showing chiaki points and t/f values
+    default chiakiclicked = 0
+    default chiakibed = False
+    default chiakicomputer = False
+    scene bg bedroom
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    show chiaki_idle
 
-    scene bg room
+    if chiakiclicked ==2:
+        jump doneobjects
+    else: 
+        call screen chiaki_sprite
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+        screen chiaki_sprite: 
+            if chiakibed == False:
+                imagebutton:
+                    xanchor 0.5
+                    yanchor 1.0
+                    xpos 0.2
+                    ypos 0.74
+                    idle "chiaki_idle.png"
+                    hover "chiaki_idle.png"
+                    action Jump("GOHERE")
 
-    show eileen happy
+            if chiakicomputer == False:
+                imagebutton: 
+                    xanchor 0.5
+                    yanchor 1.0
+                    xpos 0.78
+                    ypos 0.75
+                    idle "chiaki_idle.png"
+                    hover "chiaki_idle.png"
+                    action Jump("compute")
 
-    # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+label GOHERE:
+
+    c "hai guys"
+    $ chiakiclicked += 1
+    $chiakibed = True
+    jump start
+
+label compute:
+
+    c "im at the computer!!"
+    $ chiakiclicked += 1
+    $chiakicomputer = True
+    jump start
+
+label doneobjects:
+
+    c "okay bye bye!!"
 
     # This ends the game.
 
