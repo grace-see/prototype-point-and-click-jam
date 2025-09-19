@@ -8,6 +8,8 @@ define e = Character("Eileen")
 
 # The game starts here.
 
+# Testing to see if the commits work...
+
 label start:
 
     # Show a background. This uses a placeholder by default, but you can
