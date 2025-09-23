@@ -28,21 +28,21 @@ label start:
             if chiakibed == False:
                 imagebutton:
                     xanchor 0.5
-                    yanchor 1.0
+                    yanchor 0.5
                     xpos 0.2
                     ypos 0.74
-                    idle "chiaki_idle.png"
-                    hover "chiaki_idle.png"
+                    idle "button_idle.png"
+                    hover "button_hover.png"
                     action Jump("GOHERE")
 
             if chiakicomputer == False:
                 imagebutton: 
                     xanchor 0.5
-                    yanchor 1.0
+                    yanchor 0.5
                     xpos 0.78
                     ypos 0.75
-                    idle "chiaki_idle.png"
-                    hover "chiaki_idle.png"
+                    idle "button_idle.png"
+                    hover "button_hover.png"
                     action Jump("compute")
 
 
@@ -62,9 +62,11 @@ label compute:
     jump start
 
 label doneobjects:
-
-    c "okay bye bye!!"
-
-    # This ends the game.
-
-    return
+    c "ok here are some options :3"
+    menu:
+        "bye byeeee":
+            c "okay bye bye!!"
+            return
+        "*leave*":
+            c "oh :("
+            return
